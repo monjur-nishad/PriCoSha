@@ -5,9 +5,7 @@ post and more control over whether other people can tag content items with a use
 information. You may choose the kind of content your version of PriCoSha focuses on, e.g.
 photos, video clips, announcements about social or professional events, etc. The focus of the
 project will be on storing data about the content, allowing users to specify who can see and/or
-modify what, and providing ways for users to find content of interest. In Part 1, you’ll assume
-that the content is photos, but in the remaining parts, you are encouraged to have other kinds of
-content, along with customized operations for users to work with that content.
+modify what, and providing ways for users to find content of interest. 
 Users will be able to log in, post content items, view (some of) the content items posted by
 others (public content and content posted by people who have given them access via a ``friend’’
 mechanism, detailed below; tag content items with usernames of people referred to in the
