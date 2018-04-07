@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>unfriend</title>
+</head>
+<body>
+    <form action="/unfriendform" method="post">
+        <fieldset>
+            <legend>Select Friend's group</legend>
+            {%for name in data%}
+                <input type="radio" name="group" value={{name.group_name}}> {{name.group_name}}<br>
+            {% endfor%}
+            <br>
+             <label>User Name </label>
+             <input name="username" type="text">
+             <input type="submit" value = REMOVE />
+        </fieldset>
+    </form>
+
+</body>
+</html>

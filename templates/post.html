@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post</title>
+</head>
+<body>
+<form action="/postform" method="post">
+        <p>This is Your PriCoSha New Post Page.</p>
+
+        <fieldset>
+            <legend>Make a New Post</legend>
+            <p>Enter Post Title</p>
+
+            <input name="title" type="text">
+
+            <p>Is Your Post Public or Private?</p>
+            <input type="radio" name="privacy" value="1"> Public<br>
+            <input type="radio" name="privacy" value="0"> Private<br>
+            <br>
+            <input type="submit" value = Post />
+        </fieldset>
+    </form>
+    <br>
+
+   {% if data %}
+    <form action="/selectgroup" method="post">
+        <fieldset>
+            <legend>Select groups with which you would like to share</legend>
+            <select multiple id="mymultiselect" name="mymultiselect">
+            {%for name in data %}
+                <option value={{name.group_name}}>{{name.group_name}}</option>
+            {% endfor %}
+            </select>
+            <br>
+            <input type="submit" value = Share />
+        </fieldset>
+    </form>
+    {% endif %}
+    {{msg}}
+<br>
+<br>
+<a href="/home">Go back</a>
+
+</body>
+</html>

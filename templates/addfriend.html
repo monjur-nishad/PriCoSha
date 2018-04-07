@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Friend</title>
+</head>
+<body>
+    {%if errorx %}
+    <h1> {{errorx}}. Complete form with username again.</h1>
+    {% endif %}
+
+    <form action="/selectgroup2" method="post">
+        <fieldset>
+            <legend>Select a group to add new friend</legend>
+            {%for name in data%}
+                <input type="radio" name="group" value={{name.group_name}}> {{name.group_name}}<br>
+            {% endfor %}
+            <br>
+             <label>First Name </label>
+             <input name="first_name" type="text">
+             <label>Last Name</label>
+             <input name="last_name" type="text">
+              {% if errorx %}
+              {% endif %}
+
+             <input type="submit" value = Remove />
+        </fieldset>
+    </form>
+
+</body>
+</html>

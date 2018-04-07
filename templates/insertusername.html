@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add username</title>
+</head>
+<body>
+   <h1> {{errorx}} </h1>
+
+    <form action="/selectgroup3" method="post" onsubmit="check()">
+        <fieldset>
+            <legend>Select a group to add new friend</legend>
+            {%for name in data%}
+                <input type="radio" name="group" value={{name.group_name}}> {{name.group_name}}<br>
+            {% endfor %}
+            <br>
+             <label>First Name </label>
+             <input name="first_name" type="text">
+             <label>Last Name</label>
+             <input name="last_name" type="text">
+             <label>Username </label>
+             <input name="username" type="text">
+             <input type="submit" value = ADD />
+        </fieldset>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+</head>
+<body>
+	<h1>Welcome {{username}}!</h1>
+    <a href="/post">Make a New Post</a>
+    <br>
+    <a href="/addfriend">Add Friend</a>
+    <br>
+    <a href="/unfriend">Unfriend</a>
+    <br>
+    <a href="/logout">Logout</a>
+    {% if msg %}
+     <h2>{{msg}} </h2>
+   {% endif %}
+<br>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+		width: 500px;
+
+	}
+</style>
+
+<table>
+    {% for info in data %}
+
+	<tr>
+		<td>
+
+            <p> Content ID: {{info.id}} || Status: {{info.content_name}} </p>
+            <p> Filepath: {{info.file_path}}</p>
+            <p> Date: {{info.timest}}</p>
+
+            Comments on this post:
+            {% for info2 in data2 %}
+
+             {%if info.id == info2.id %}
+
+                <p> {{info2.comment_text}} -- {{info2.username}}</p>
+            {% endif %}
+            {% endfor %}
+
+            <hr>
+
+            <p>People tagged in this post: </p>
+
+            {% for info3 in data3 %}
+             {%if info.id == info3.id %}
+                <p> {{info3.first_name}} {{info3.last_name}}</p>
+            {% endif %}
+            {% endfor %}
+
+
+             <hr>
+
+            <p> Your pending tags: </p>
+             {% for info4 in data4 %}
+             {%if info.id == info4.id %}
+              <p>{{info4.username_tagger}} has tagged you in this post. Choose your action: </p>
+                 <form action="/tagconfirm" method="post">
+
+                     <input type="radio" name="status" value="1"> Confirm <br>
+                     <input type="radio" name="status" value="-1"> Decline<br>
+                     <input type="hidden" name="id" value={{info.id}}>
+                     <input type="hidden" name="tagger" value={{info4.username_tagger}}>
+                     <br>
+                     <input type="submit" value = "Submit"/>
+                 </form>
+            {% endif %}
+            {% endfor %}
+             <hr>
+
+            <form action="/taging" method="post">
+                <label> Tag an user</label>
+                <input name="taggee" type="text" placeholder=" Enter username">
+                <input type="submit" value = "Submit"/>
+                <input type="hidden" name="id" value={{info.id}}>
+            </form>
+
+             <form action="/comment" method="post">
+                <label> Write a Comment</label>
+                <input name="comment" type="text" placeholder="Comment">
+                <input type="submit" value = "Submit"/>
+                <input type="hidden" name="id" value={{info.id}}>
+            </form>
+
+        </td>
+	</tr>
+    {% endfor %}
+    </table>
+
+
+</body>
+
+</html>
