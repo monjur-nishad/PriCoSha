@@ -11,4 +11,4 @@ others (public content and content posted by people who have given them access v
 mechanism, detailed below; tag content items with usernames of people referred to in the
 content items (if they have permission to do so), etc. 
 
-NOTE: THIS VERSION IS VERY MESSY AND HAS QUITE A FEW BUGS. 
+
